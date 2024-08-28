@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView ,StyleSheet } from 'react-native';
 
@@ -6,6 +6,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { RoutesStack } from './src/routes2'; 
 
 export default function App() {
+
+  
+
   return (
     <NavigationContainer>
       <StatusBar style="auto" />

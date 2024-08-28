@@ -1,0 +1,29 @@
+{
+    "pacientes": [
+      {
+        "id": 1,
+        "nome": "João Silva",
+        "idade": 30,
+        "sexo": "Masculino",
+        "data_nascimento": "1994-01-15",
+        "identificacao": "12345678901"
+      },
+      {
+        "id": 2,
+        "nome": "Maria Oliveira",
+        "idade": 25,
+        "sexo": "Feminino",
+        "data_nascimento": "1999-03-22",
+        "identificacao": "98765432100"
+      },
+      {
+        "id": 3,
+        "nome": "Carlos Souza",
+        "idade": 40,
+        "sexo": "Masculino",
+        "data_nascimento": "1984-07-09",
+        "identificacao": "45678912345"
+      }
+    ]
+  }
+  

@@ -1,0 +1,16 @@
+{
+  "name": "jsonserver",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "db":"json-server -w db.json"
+    
+  },
+  "author": "",
+  "license": "ISC",
+  "description": " Json com dados de pacientes",
+  "dependencies": {
+    "json-server": "^0.16.1",
+    "ngrok":"^3.2.7"
+  }
+}

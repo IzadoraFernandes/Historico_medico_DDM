@@ -5,6 +5,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { Login } from "./pages/Login";
 import { PaineldeControle } from "./pages/PaineldeControle";
 import { NovosPacientes } from "./pages/NovosPacientes";
+import { ListadePacientes } from "./pages/ListadePacientes";
 
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -21,6 +22,8 @@ export function RoutesStack() {
       
       <Stack.Screen name="Novos Pacientes" component={NovosPacientes} />
       
+      <Stack.Screen name="Pacientes Cadastrados" component={ListadePacientes} />
+
     </Stack.Navigator>
   );
 }
