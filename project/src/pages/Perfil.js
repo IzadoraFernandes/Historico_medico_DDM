@@ -33,6 +33,18 @@ export function Perfil({ navigation }) {
           <Text style={styles.campoTexto}>Identificação: </Text>
           {currentData.identification}
         </Text>
+        <Text style={styles.campo}>
+          <Text style={styles.campoTexto}>Tipo Sanguíneo: </Text>
+          {currentData.tiposanguineo}
+        </Text>
+        <Text style={styles.campo}>
+          <Text style={styles.campoTexto}>Endereço: </Text>
+          {currentData.endereco}
+        </Text>
+        <Text style={styles.campo}>
+          <Text style={styles.campoTexto}>Telefone: </Text>
+          {currentData.telefone}
+        </Text>
       </View>
     </View>
   );

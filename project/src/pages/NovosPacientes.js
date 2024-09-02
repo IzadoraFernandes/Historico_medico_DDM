@@ -12,6 +12,10 @@ export function NovosPacientes() {
   const [sex, setSex] = useState("");
   const [dateofbirth, setDateofbirth] = useState("");
   const [identification, setIdentification] = useState("");
+  const [tiposanguineo, setTipoSanguineo] = useState("");
+  const [endereco, setEndereco] = useState("");
+  const [telefone, setTelefone] = useState("");
+  
 
   const [patient, setPatient] = useState([]);
 
@@ -27,6 +31,9 @@ export function NovosPacientes() {
       sex: sex,
       dateofbirth: dateofbirth,
       identification: identification,
+      tiposanguineo: tiposanguineo,
+      endereco: endereco,
+      telefone: telefone,
     };
 
     const vetData = [...patient, data];
@@ -41,6 +48,9 @@ export function NovosPacientes() {
     setSex("");
     setDateofbirth("");
     setIdentification("");
+    setTipoSanguineo("");
+    setEndereco("");
+    setTelefone("");
   }
 
   async function handleDeletePatient(id) {
@@ -105,6 +115,27 @@ export function NovosPacientes() {
               placeholder={"Identificação do Paciente"}
               onChangeText={(identification) =>
                 setIdentification(identification)
+              }
+            />
+            <InputTarefa
+              default={tiposanguineo}
+              placeholder={"Tipo Sanguíneo do Paciente"}
+              onChangeText={(tiposanguineo) =>
+                setTipoSanguineo(tiposanguineo)
+              }
+            />
+            <InputTarefa
+              default={endereco}
+              placeholder={"Endereço do Paciente"}
+              onChangeText={(endereco) =>
+                setEndereco(endereco)
+              }
+            />
+            <InputTarefa
+              default={telefone}
+              placeholder={"Telefone do Paciente"}
+              onChangeText={(telefone) =>
+                setTelefone(telefone)
               }
             />
           </View>

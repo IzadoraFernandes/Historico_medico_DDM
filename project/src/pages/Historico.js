@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, FlatList, Image, } from "react-native";
+import { View, StyleSheet, FlatList, Alert } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import CampoCadastroDeDados from "../components/campocadastrodedados";
 
-
 export function Historico({navigation}) {
   const keyAsyncStorage = "@historico";
-
   const [patient, setPatient] = useState([]);
 
   async function loadData() {
     try {
       const retorno = await AsyncStorage.getItem(keyAsyncStorage);
-      const dadosPatient = await JSON.parse(retorno);
-      console.log("loadData -> ", dadosPatient);
-      setPatient(dadosPatient || []);
+      const dadosPatient = retorno ? JSON.parse(retorno) : [];
+      console.log("loadData -> ", dadosPatient);  // Verifique se os dados estão sendo carregados corretamente
+      setPatient(dadosPatient);
     } catch (error) {
       Alert.alert("Erro na leitura dos dados");
     }
@@ -30,26 +28,21 @@ export function Historico({navigation}) {
     loadData();
   }
 
-
-
   return (
     <View style={styles.container}>
-      <View>
       <FlatList
-          data={patient}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <CampoCadastroDeDados
-              tiposanguineo = {item.tiposanguineo}
-              queixas = {item.queixas}
-              tratamento = {item.tratamento}
-              evolucao = {item.evolucao}
-              apagar={() => handleDeletePatient(item.id)}
-             
-            />
-          )}
-        />
-      </View>
+        data={patient}
+        keyExtractor={(item) => item.id.toString()}  // Certifique-se que o id seja uma string
+        renderItem={({ item }) => (
+          <CampoCadastroDeDados
+            tiposanguineo={item.tiposanguineo}
+            queixas={item.queixas}
+            tratamento={item.tratamento}
+            evolucao={item.evolucao}
+            apagar={() => handleDeletePatient(item.id)}
+          />
+        )}
+      />
     </View>
   );
 }
