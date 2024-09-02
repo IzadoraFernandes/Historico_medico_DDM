@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, FlatList } from "react-native";
+import { View, StyleSheet, FlatList, Image, } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import CampoCadastroDePaciente from "../components/campocadastrodepaciente";
+import CampoCadastroDeDados from "../components/campocadastrodedados";
 
-export function ListadePacientes({ navigation }) {
-  const keyAsyncStorage = "@prontuario";
+
+export function Historico({navigation}) {
+  const keyAsyncStorage = "@historico";
 
   const [patient, setPatient] = useState([]);
 
@@ -29,27 +30,22 @@ export function ListadePacientes({ navigation }) {
     loadData();
   }
 
-  async function DetailsPacient(id) {
-    const newData = patient.filter((item) => item.id == id);
-    //await loadData();
-    navigation.navigate("Prontuário", {
-      screen: "Perfil",
-      params: newData[0],
-    });
-  }
+
 
   return (
     <View style={styles.container}>
       <View>
-        <FlatList
+      <FlatList
           data={patient}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
-            <CampoCadastroDePaciente
-              name={item.name}
-              identification={item.identification}
+            <CampoCadastroDeDados
+              tiposanguineo = {item.tiposanguineo}
+              queixas = {item.queixas}
+              tratamento = {item.tratamento}
+              evolucao = {item.evolucao}
               apagar={() => handleDeletePatient(item.id)}
-              details={() => DetailsPacient(item.id)}
+             
             />
           )}
         />
@@ -57,6 +53,7 @@ export function ListadePacientes({ navigation }) {
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#FFFFFF",
@@ -76,10 +73,5 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     borderRadius: 4,
     paddingVertical: 10,
-  },
-  toDo: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    color: "FFFFFF",
   },
 });

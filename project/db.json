@@ -1,5 +1,5 @@
 {
-    "pacientes": [
+    "patient": [
       {
         "id": 1,
         "nome": "João Silva",

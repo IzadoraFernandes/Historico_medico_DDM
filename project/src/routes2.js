@@ -6,7 +6,9 @@ import { Login } from "./pages/Login";
 import { PaineldeControle } from "./pages/PaineldeControle";
 import { NovosPacientes } from "./pages/NovosPacientes";
 import { ListadePacientes } from "./pages/ListadePacientes";
-
+import { Perfil } from "./pages/Perfil";
+import { DadosdoPaciente } from "./pages/DadosdoPaciente";
+import { Historico } from "./pages/Historico";
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -19,11 +21,13 @@ export function RoutesStack() {
       <Stack.Screen name="Login" component={Login} />
 
       <Stack.Screen name="Menu" component={PaineldeControle} />
-      
+
       <Stack.Screen name="Novos Pacientes" component={NovosPacientes} />
-      
+
       <Stack.Screen name="Pacientes Cadastrados" component={ListadePacientes} />
 
+      <Stack.Screen name="Prontuário" component={Routes} />
+      
     </Stack.Navigator>
   );
 }
