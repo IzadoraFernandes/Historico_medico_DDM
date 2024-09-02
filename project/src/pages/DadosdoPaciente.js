@@ -11,6 +11,7 @@ export function DadosdoPaciente() {
   const [queixas, setQueixas] = useState("");
   const [tratamento, setTratamento] = useState("");
   const [evolucao, setEvolucao] = useState("");
+  const [data, setData] = useState("");
   
 
 
@@ -27,11 +28,13 @@ export function DadosdoPaciente() {
       queixas: queixas,
       tratamento: tratamento,
       evolucao: evolucao,
+      data: data,
     };
     setTipoSanguineo("");
     setQueixas("");
     setTratamento("");
     setEvolucao("");
+    setData("");
 
     const vetData = [...patient, data];
     try {
@@ -76,12 +79,6 @@ export function DadosdoPaciente() {
               <Image style={styles.logo} source={require("../img/logo.png")} />
             </View>
           </View>
-
-          <InputTarefa
-            default={tiposanguineo}
-            placeholder={"Tipo Sanguíneo"}
-            onChangeText={(tiposanguineo) => setTipoSanguineo(tiposanguineo)}
-          />
           <InputTarefa
             default={queixas}
             placeholder={"Queixas"}
@@ -96,6 +93,11 @@ export function DadosdoPaciente() {
             default={evolucao}
             placeholder={"Notas de evolução"}
             onChangeText={(evolucao) => setEvolucao(evolucao)}
+          />
+          <InputTarefa
+            default={data}
+            placeholder={"Data da consulta"}
+            onChangeText={(data) => setData(data)}
           />
 
           <Button texto={"Cadastrar"} onPress={handleSavePatient} />
